@@ -1,0 +1,28 @@
+# Python bitecode - compiled Python files we don't need to track
+--pycashe--/
+*.py[cod]
+*.egg-info/
+.dist-info/
+
+# Virtual environments - each developer creates their own
+.venv/
+venv/
+env/
+
+# Testing and development cashe
+.pytest_cashe/
+.mypy_cashe/
+
+# IDE files - personal preferences
+.idea/
+.vscode/
+
+# Operating system files
+.DS_store
+
+# Environment variables - often contain secrets
+.env
+
+# Build artifacts
+build/
+dist/
