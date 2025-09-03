@@ -1,0 +1,14 @@
+# Version is implied in newer Docker Compose
+services:
+  # Define our web service
+  web:
+    build: .      # Build from Dockerfile in current directory
+    ports:
+      - "8000"    # Map port 8000 from container to host
+    environment: []     # Environment variables (none needed yet)
+
+    # For development: uncomment these lines to enable live reload
+    # volumes:
+    #   - ./app:/app/app    # Mount local app folder into container
+    # command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    
