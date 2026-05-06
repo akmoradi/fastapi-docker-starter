@@ -8,7 +8,7 @@ FROM python:3.12-slim
 # These optimize Python for containers
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CASHE-DIR=1
+    PIP_NO_CACHE_DIR=1
 
 # Set working directory inside container
 # This is like choosing which room we work in
@@ -17,7 +17,7 @@ WORKDIR /app
 # Install system dependencies (minimal for this project)
 # Update package list and clean up to keep image small
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    && rm /rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python dependencies first
 # We do this before copying code for better Docker layer cashing
@@ -33,4 +33,4 @@ EXPOSE 8000
 
 # Command to run our application
 # This is what happens when the container starts
-CMD ["uvicorn", "app.main.py:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
